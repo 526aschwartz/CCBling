@@ -1,0 +1,31 @@
+/* Flex‑center wrapper */
+#landing-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Logo pop‑in */
+#landing-logo {
+  width: clamp(120px, 25vw, 240px);
+  height: auto;
+  animation: popIn 0.9s ease-out;
+}
+
+@keyframes popIn {
+  0%   { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1);   opacity: 1; }
+}
+
+/* Greeting size */
+#greeting { font-size: clamp(2.5rem, 6vw, 5rem); margin-top: 1rem; }
+
+/* Time‑of‑day gradients & colors */
+body.morning   { background: linear-gradient(135deg,#f7f7f7 0%,#e1f3ff 100%); color: white; }
+body.afternoon { background: linear-gradient(135deg,#fffaf0 0%,#ffe6cc 100%); color: white; }
+body.evening   { background: linear-gradient(135deg,#001b44 0%,#003366 100%); color: white; }
+body.night     { background: linear-gradient(135deg,#000000 0%,#001b33 100%); color: white; }

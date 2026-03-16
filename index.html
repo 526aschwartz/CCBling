@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>New York Rangers</title>
+
+    <link rel="stylesheet" href="https://use.typekit.net/wta0qyp.css">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+
+    <div id="landing-wrapper">
+      <img id="landing-logo" src="imgs/NYR_dark.svg" alt="logo" />
+      <h1 id="greeting"></h1>
+    </div>
+
+    <script>
+      /* Time‑of‑day greeting + 5‑second redirect */
+      const greetings = [
+        { start: 5, end: 11, text: "Good morning", cls: "morning" },
+        { start: 11, end: 17, text: "Good afternoon", cls: "afternoon" },
+        { start: 17, end: 22, text: "Good evening", cls: "evening" },
+        { start: 22, end: 24, text: "Good night", cls: "night" },
+        { start: 0, end: 5, text: "Good night", cls: "night" },
+      ];
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const hr = new Date().getHours();
+        const g = greetings.find(({ start, end }) => hr >= start && hr < end);
+
+        /* Apply background & text colors via CSS class */
+        document.body.classList.add(g.cls);
+        document.getElementById("greeting").textContent = g.text;
+
+        /* Redirect to home page after 5 s */
+        setTimeout(() => window.location.replace("home.html"), 5000);
+      });
+    </script>
+  </body>
+</html>
