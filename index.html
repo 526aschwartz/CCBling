@@ -1,42 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>New York Rangers</title>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom College Bling</title>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Dancing+Script:wght@700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
-    <link rel="stylesheet" href="https://use.typekit.net/wta0qyp.css">
-    <link rel="stylesheet" href="style.css" />
-  </head>
+</head>
+<body>
 
-  <body>
-
-    <div id="landing-wrapper">
-      <img id="landing-logo" src="imgs/NYR_dark.svg" alt="logo" />
-      <h1 id="greeting"></h1>
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <div class="logo-stack">
+      <span class="logo-top">CUSTOM</span>
+      <span class="logo-bot">COLLEGE</span>
+      <span class="logo-script">Bling</span>
     </div>
+  </div>
+  <ul>
+    <li><a href="#" class="active" onclick="show('home',this)">Home</a></li>
+    <li><a href="#" onclick="show('about',this)">About Us</a></li>
+    <li><a href="#" onclick="show('products',this)">Products</a></li>
+    <li><a href="#" onclick="show('contact',this)">Contact Us</a></li>
+  </ul>
+</nav>
 
-    <script>
-      /* Time‑of‑day greeting + 5‑second redirect */
-      const greetings = [
-        { start: 5, end: 11, text: "Good morning", cls: "morning" },
-        { start: 11, end: 17, text: "Good afternoon", cls: "afternoon" },
-        { start: 17, end: 22, text: "Good evening", cls: "evening" },
-        { start: 22, end: 24, text: "Good night", cls: "night" },
-        { start: 0, end: 5, text: "Good night", cls: "night" },
-      ];
+<main>
 
-      window.addEventListener("DOMContentLoaded", () => {
-        const hr = new Date().getHours();
-        const g = greetings.find(({ start, end }) => hr >= start && hr < end);
+<!-- HOME -->
+<section id="home" class="visible">
+  <div class="hero">
+    <div class="hero-badge">
+      <h1>WELCOME TO CUSTOM COLLEGE BLING!!</h1>
+      <p>All products are customizable for <strong>ANY SCHOOL!!</strong><br>We can't wait to make your order </p>
+      <button class="btn-primary" onclick="show('products', document.querySelectorAll('nav a')[2])">SHOP ALL!</button>
+    </div>
+    <div class="hero-footer-note">
+      <div class="social-pill">
+        <span class="social-icon ig">📷</span>
+        <span class="social-icon tk">♪</span>
+        customcollegebling
+      </div>
+      <span>· All products handmade with love </span>
+    </div>
+  </div>
+</section>
 
-        /* Apply background & text colors via CSS class */
-        document.body.classList.add(g.cls);
-        document.getElementById("greeting").textContent = g.text;
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="products-section">
+    <h2 class="section-title" style="text-align:center;">Our Products </h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-img">🍾</div>
+        <div class="product-info">
+          <span class="product-name">Bling Bottle</span>
+          <div class="price-details">
+            <span class="product-price">$75</span>
+            <button class="btn-details" onclick="showProduct('Bling Bottle', 'A stylish water bottle covered in rhinestones and customized with your school\'s logo and colors. Can be made for any school in any color combination to match your team spirit!')">Details</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">🥂</div>
+        <div class="product-info">
+          <span class="product-name">Shot Glass</span>
+          <div class="price-details">
+            <span class="product-price">$10</span>
+            <button class="btn-details" onclick="showProduct('Shot Glass', 'A fun shot glass embellished with rhinestones and personalized with your school\'s emblem and colors. Perfect for game days! Can be customized for any school in any color.')">Details</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">🎓</div>
+        <div class="product-info">
+          <span class="product-name">Grad Cap</span>
+          <div class="price-details">
+            <span class="product-price">$75–105</span>
+            <button class="btn-details" onclick="showProduct('Grad Cap', 'A graduation cap adorned with rhinestones spelling out your school name or initials, in your school colors. Celebrate your achievement in style! Customizable for any school in any color.')">Details</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" style="grid-column: 1 / 2; margin-left: auto; margin-right: auto; width: 100%;">
+        <div class="product-img">🪢</div>
+        <div class="product-info">
+          <span class="product-name">Claw Clip</span>
+          <div class="price-details">
+            <span class="product-price">$15</span>
+            <button class="btn-details" onclick="showProduct('Claw Clip', 'A hair accessory decorated with rhinestones and customized with your school\'s logo or letters in your colors. Keep your hair in place with school pride! Available for any school in any color.')">Details</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" style="width: 100%;">
+        <div class="product-img">🔤</div>
+        <div class="product-info">
+          <span class="product-name">Letters</span>
+          <div class="price-details">
+            <span class="product-price">$10 /letter</span>
+            <button class="btn-details" onclick="showProduct('Letters', 'Individual rhinestone letters to spell out your name, school, or favorite phrase. Each letter is customizable in any color and can be arranged to show your school spirit!')">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        /* Redirect to home page after 5 s */
-        setTimeout(() => window.location.replace("home.html"), 5000);
-      });
-    </script>
-  </body>
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-section">
+    <h2 class="section-title" style="text-align:center;">Meet the Team</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-photo"><img src="img/leila.jpg"></div>
+        <div class="team-info">
+          <h3>Leila Brunisholz</h3>
+          <span class="team-school">University of Tampa</span>
+          <p>Studying communications & media arts. Loves bedazzling all our products! Fun fact: she can handstand walk 50 feet! </p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><img src="img/liv.jpeg"></div>
+        <div class="team-info">
+          <h3>Olivia Pekarskiy</h3>
+          <span class="team-school">University of Florida</span>
+          <p>Freshman studying physiology on the pre-med track. Creates our bedazzled caps & bottles! Has a dog named June </p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><img src="img/izzy.jpg"></div>
+        <div class="team-info">
+          <h3>Isabella Maiello</h3>
+          <span class="team-school">Florida Atlantic University</span>
+          <p>Freshman aspiring nurse. Specializes in our bling bottles! Loves going to the beach </p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><img src="img/aly.jpg"></div>
+        <div class="team-info">
+          <h3>Alyson Schwartz</h3>
+          <span class="team-school">Penn State University (Incoming)</span>
+          <p>High school senior heading to Penn State! Creates all products and coded & produced this very website </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-section">
+    <h2 class="section-title">Place an Order </h2>
+    <div class="contact-box">
+      <h2>Custom Order Form</h2>
+      <p>Fill out the form below and we'll get back to you to confirm your custom order details!</p>
+      <div class="field-group">
+        <div>
+          <label class="field-label">Your Name</label>
+          <input class="field-input" type="text" placeholder="e.g. Jane Smith">
+        </div>
+        <div>
+          <label class="field-label">Email Address</label>
+          <input class="field-input" type="email" placeholder="you@email.com">
+        </div>
+        <div>
+          <label class="field-label">Product</label>
+          <select class="field-input">
+            <option value="">Select a product...</option>
+            <option>Bling Bottle — $75</option>
+            <option>Shot Glass — $10</option>
+            <option>Grad Cap — $75–$105</option>
+            <option>Claw Clip — $15</option>
+            <option>Letters — $10/letter</option>
+          </select>
+        </div>
+        <div>
+          <label class="field-label">Your School / Customization Details</label>
+          <textarea class="field-input" placeholder="e.g. Penn State, blue + white rhinestones, #12 jersey..."></textarea>
+        </div>
+      </div>
+      <button class="btn-primary" style="width:100%;">Submit Order </button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="social-pill">
+    <span class="social-icon ig">📷</span>
+    <span class="social-icon tk">♪</span>
+    customcollegebling
+  </div>
+  <div class="handmade-note"><span>Producing</span> · All products are made in our bedroom, handmade!</div>
+</footer>
+
+<!-- Product Modal -->
+<div id="product-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="modal-title"></h2>
+    <p id="modal-desc"></p>
+  </div>
+</div>
+
+<script>
+  function show(id, el) {
+    document.querySelectorAll('section').forEach(s => s.classList.remove('visible'));
+    document.getElementById(id).classList.add('visible');
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    if (el && el.classList) el.classList.add('active');
+  }
+
+  function showProduct(title, desc) {
+    document.getElementById('modal-title').textContent = title;
+    document.getElementById('modal-desc').textContent = desc;
+    document.getElementById('product-modal').style.display = 'block';
+  }
+
+  function closeModal() {
+    document.getElementById('product-modal').style.display = 'none';
+  }
+
+  // Close modal when clicking outside
+  window.onclick = function(event) {
+    if (event.target == document.getElementById('product-modal')) {
+      closeModal();
+    }
+  }
+</script>
+</body>
 </html>
