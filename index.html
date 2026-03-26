@@ -180,7 +180,7 @@
           <textarea class="field-input" placeholder="e.g. Penn State, blue + white rhinestones, #12 jersey..."></textarea>
         </div>
       </div>
-      <button class="btn-primary" style="width:100%;">Submit Order </button>
+      <button class="btn-primary" style="width:100%;" onclick="submitOrder()">Submit Order </button>
     </div>
   </div>
 </section>
@@ -229,6 +229,17 @@
     if (event.target == document.getElementById('product-modal')) {
       closeModal();
     }
+  }
+
+  function submitOrder() {
+    // Clear all form fields
+    document.querySelectorAll('.field-input').forEach(field => {
+      if (field.tagName === 'SELECT') {
+        field.value = '';
+      } else {
+        field.value = '';
+      }
+    });
   }
 </script>
 </body>
